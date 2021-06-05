@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //tạo 1 class pin
+    class Battery {
+        energy;
+        constructor(energy) {
+            this.energy = energy;
+        }
+    };
+//tạo 1 class đèn
+    class Den {
+        // tạo 1 biến battery
+        battery;
+        constructor(battery) {
+            this.battery = battery;
+        }
+        //trạng
+        status() {
+            if (this.battery.energy > 0) {
+                alert('con pin')
+            } else alert('het pin')
+
+
+            }
+            //trạng thái khi chạy, lấy 1 biến battery đã tạo ở class 2 . tới đối tượng enery trên class 1 để lấy giá trị
+          turnOn(){
+            if(this.battery.energy>0){
+                alert('sang');
+                this.battery.energy--;
+            }else {
+                alert('het pin')
+            }
+          }
+          turnOff(){
+            alert('tat');
+          }
+    }
+    //tạo 1 bản sao giống với class để truyền tham số
+    let battery = new Battery(1);
+    //tạo 1 bản sao giống với class 2 để liên kết tới class 1
+    let den = new Den(battery);
+//in ra giá trị, kiểm tra năng lượng đèn còn
+    document.write("pin cua den = " + den.battery.energy);
+    //in ra trạng thái đèn
+    den.turnOn();
+    document.write("pin cua den = " + den.battery.energy);
+    den.turnOff()
+
+</script>
+</body>
+</html>
